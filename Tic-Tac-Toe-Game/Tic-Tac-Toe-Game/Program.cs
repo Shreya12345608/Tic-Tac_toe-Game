@@ -12,7 +12,10 @@ namespace Tic_Tac_Toe_Game
         {
             Console.WriteLine( "Welcome to Tic Tac Toe Game");
             tic_tac_toe_game tttgame = new tic_tac_toe_game();
+            //Create board
             tttgame.CreateBoard();
+            //Taking i/p from user
+            tttgame.GameInput();
             Console.ReadKey();
         }
     }
