@@ -18,6 +18,8 @@ namespace Tic_Tac_Toe_Game
             char[] board = tttgame.CreateBoard();
             tttgame.GameInput();
             tttgame.ShowBoard(board);
+            board = tttgame.getUserMove(board);
+            tttgame.ShowBoard(board);
             Console.ReadKey();
         }
     }

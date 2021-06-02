@@ -57,7 +57,45 @@ namespace Tic_Tac_Toe_Game
             Console.WriteLine("  {0}  |  {1}  |  {2}", board[7], board[8], board[9]);
             Console.WriteLine("     |     |      ");
         }
+        //user making his move
+        public char[] getUserMove(char[] board)
+        {
+            //Select location in Your Board Where you want your 0
+            Console.WriteLine("Select The Location On Board:  ");
+            //Store in Int Variable
+            int ExactLocation = Convert.ToInt32(Console.ReadLine());
+            //validating user location
+            //while loop check if ExactLocation is (less than)9 And  ExactLoaction is (greater) than 1
+            while (ExactLocation > 9 || ExactLocation < 1)
+            {
+                // if other than this it will give an error
+                Console.WriteLine("Invalid exactLocation, select the location on Board b/w 1 to 9 :  ");
+                ExactLocation = Convert.ToInt32(Console.ReadLine()); // ip
+                ExactLocation = checkBoard(ExactLocation, board); // 1 to 9 
+            }
+            //if 0 == 0
+            if (ExactLocation == 0) 
+            {
+                //error Location Already Selected
+                Console.WriteLine("location already selected");
+                Console.WriteLine("Please Select another location on Tic Tac Toc Board :  ");
+                ExactLocation = Convert.ToInt32(Console.ReadLine());
+            }
+            // in b/w 1 to 9
+            else
+                //Print 0 in that location
+                board[ExactLocation] = '0';
+                return board;
+        }
 
-    }           
+        //Check if board is empty
+        public int checkBoard(int ExactLocation, char[] board)
+        {
+            if (board[ExactLocation] != ' ')
+                return 0;
+            else
+                return ExactLocation;
+        }
+    }
 }
 
