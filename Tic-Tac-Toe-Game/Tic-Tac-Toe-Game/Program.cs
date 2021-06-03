@@ -10,17 +10,19 @@ namespace Tic_Tac_Toe_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to Tic Tac Toe Game");
-            tic_tac_toe_game tttgame = new tic_tac_toe_game();
-            char[] board = tttgame.CreateBoard();
-            tttgame.GameInput();
-            tttgame.ShowBoard(board);
-            //board
-            tttgame.CreateBoard();
-            board = tttgame.getUserMove(board);
-            tttgame.ShowBoard(board);
-            Console.ReadKey();
-         
+            //Console.WriteLine("Welcome to TicTacToe game");
+            tic_tac_toe_game ticTacToe = new tic_tac_toe_game();
+            Console.WriteLine("Tic Tac Toe Game");
+            char[] board = ticTacToe.CreateBoard();
+            //loop till all empty spaces are filled
+            for (int i = 1; i < board.Length; i++)
+            {
+                ticTacToe.GameInput();
+                ticTacToe.ShowBoard(board);
+                board = ticTacToe.UserMove(board);
+                ticTacToe.ShowBoard(board);
+                Console.ReadKey();
+            }
         }
     }
 }
