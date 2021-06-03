@@ -10,17 +10,17 @@ namespace Tic_Tac_Toe_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine( "Welcome to Tic Tac Toe Game");
+            Console.WriteLine("Welcome to Tic Tac Toe Game");
             tic_tac_toe_game tttgame = new tic_tac_toe_game();
-            //Create empty board
-            tttgame.CreateBoard();
-
             char[] board = tttgame.CreateBoard();
             tttgame.GameInput();
             tttgame.ShowBoard(board);
+            //board
+            tttgame.CreateBoard();
             board = tttgame.getUserMove(board);
             tttgame.ShowBoard(board);
             Console.ReadKey();
+         
         }
     }
 }

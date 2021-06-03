@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 namespace Tic_Tac_Toe_Game
 {
     class tic_tac_toe_game
-    {
+    {/// <summary>
+     /// Method to create an empty board 
+     /// </summary>
+     /// <returns> return an board</returns>
         public char[] CreateBoard()
         {
             char[] board = new char[10]; //Char storing 10 value 
             //Length property returns the number of Char objects in this instance
             for (int StartingIndex = 0; StartingIndex < board.Length; StartingIndex++) //StartingIndex = 0 ; StartingIndex < 10 ; +1 
-            //game board intilized with empty 
-             //zero th index ignored
-             // space 10 enpty 
-             board[StartingIndex] = ' '; 
-            //return value of board
-             return board;
+               //game board intilized with empty 
+                //zero th index ignored
+                 // space 10 enpty 
+                board[StartingIndex] = ' ';
+              //return value of board
+           return board;
         }
         /// <summary>
         /// UC2
@@ -27,17 +30,17 @@ namespace Tic_Tac_Toe_Game
         ///  Check if  Random Value  == 1 then Computerplay First and input will be 0 
         /// </summary>
         public void GameInput()
-         {
+        {
 
             Random random = new Random();
-            int RandomValue = random.Next(0,2);
+            int RandomValue = random.Next(0, 2);
             if (RandomValue == 0)
-         /// Check if  Random Value  == 0 then Playerplay First and input will be X 
+                /// Check if  Random Value  == 0 then Playerplay First and input will be X 
                 Console.WriteLine("Player play first. Input Will Be X");
             else
-         ///  Check if  Random Value  == 1 then Computerplay First and input will be 0 
+                ///  Check if  Random Value  == 1 then Computerplay First and input will be 0 
                 Console.WriteLine("Computer play first.  Input Will Be 0");
-
+           
         }
         /// <summary>
         /// UC3
@@ -73,22 +76,26 @@ namespace Tic_Tac_Toe_Game
                 ExactLocation = Convert.ToInt32(Console.ReadLine()); // ip
                 ExactLocation = checkBoard(ExactLocation, board); // 1 to 9 
             }
-            //if 0 == 0
-            if (ExactLocation == 0) 
+            //loop for checking Empty Space
+            bool emptySpace = false;
+            while (true)
             {
-                //error Location Already Selected
-                Console.WriteLine("location already selected");
-                Console.WriteLine("Please Select another location on Tic Tac Toc Board :  ");
-                ExactLocation = Convert.ToInt32(Console.ReadLine());
-            }
-            // in b/w 1 to 9
-            else
-                //Print 0 in that location
-                board[ExactLocation] = '0';
+                //if 0 == 0
+                if (ExactLocation == 0)
+                {
+                    //error Location Already Selected
+                    Console.WriteLine("location already selected");
+                    Console.WriteLine("Please Select another location on Board :  ");
+                    ExactLocation = Convert.ToInt32(Console.ReadLine());
+                    emptySpace = true;
+                }
+                else
+                    board[ExactLocation] = 'x';
                 return board;
-        }
 
-        //Check if board is empty
+            }
+        }
+        //checking if board is empty
         public int checkBoard(int ExactLocation, char[] board)
         {
             if (board[ExactLocation] != ' ')
@@ -97,5 +104,5 @@ namespace Tic_Tac_Toe_Game
                 return ExactLocation;
         }
     }
-}
 
+}
